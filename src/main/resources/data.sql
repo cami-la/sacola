@@ -16,5 +16,8 @@ INSERT INTO produto (id, disponivel, nome_produto, valor_unitario, restaurante_i
 (5l, 1, 'Pastel de Palmito', 2.0, 3l),
 (6l, 1, 'Pastel de Queijo', 2.0, 3l);
 
-INSERT INTO sacola (id, data_criacao_sacola, forma_pagamento, status_sacola, valor_total_sacola, cliente_id, restaurante_id) VALUES
-(1l, STR_TO_DATE("01/13/94", "%m/%d/%Y"), 'CARTAO', 'PREPARANDO_O_PEDIDO', )
+INSERT INTO sacola (id, forma_pagamento, status_sacola, valor_total_sacola, cliente_id, restaurante_id) VALUES
+(1l, 'CARTAO', 'PEDIDO_EM_ANDAMENTO', 100.0, 2l, 3l);
+
+INSERT INTO item (id, quantidade, produto_id, sacola_id) VALUES
+(1l, 3, 5l, 1l);

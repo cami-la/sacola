@@ -24,16 +24,15 @@ public class Sacola {
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "restaurante_id", nullable = false)
   private Restaurante restaurante;
-  @ManyToMany(cascade={CascadeType.ALL}, fetch = FetchType.LAZY)
-  @JoinTable(name="sacola_item", joinColumns=@JoinColumn(name="sacola_id"),
-      inverseJoinColumns=@JoinColumn(name="item_id"))
+  @OneToMany(
+      mappedBy = "sacola",
+      cascade = CascadeType.ALL,
+      orphanRemoval = true
+  )
   private List<Item> itensSacola;
   private double valorTotalSacola;
-  private LocalDateTime dataCriacaoSacola;
   @Enumerated(EnumType.STRING)
   private FormaPagamento formaPagamento;
   @Enumerated(EnumType.STRING)
   private StatusSacola statusSacola;
-
-
 }

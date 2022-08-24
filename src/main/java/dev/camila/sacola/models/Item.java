@@ -18,10 +18,6 @@ public class Item {
   @JoinColumn(name = "produto_id", nullable = false)
   private Produto produto;
   private int quantidade;
-  @ManyToMany(
-      mappedBy = "item",
-      cascade = CascadeType.ALL,
-      orphanRemoval = true
-  )  private Sacola sacola;
-
+  @ManyToOne(fetch = FetchType.LAZY)
+  private Sacola sacola;
 }
